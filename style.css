@@ -1,0 +1,50 @@
+:root{
+    font-family: sans-serif;
+    --header: #293462;
+    --gameboard: #D61C4E;
+    --background: #1CD6CE;
+    --icons: #FEDB39;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--background);
+}
+
+.header {
+    background-color: var(--header);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:100vw;
+    height: 200px;
+    color: var(--icons);
+    font-size: 140px;
+    font-weight: bolder;
+}
+
+.gameboard {
+    background-color: var(--gameboard);
+    margin-top: 40px;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: solid 10px var(--header)
+}
+
+.square {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    color: var(--icons);
+    width: 200px;
+    height: 200px;
+    border: solid var(--background) 5px;
+}
+
+
+
+
+
