@@ -11,12 +11,14 @@ const gameController = (()=>{
     const player2Score = document.querySelector("#player2score")
     let whosTurn = 1
     let totalTurns = 0
+    let winner = false
 
     const turnController = (e)=> {
         if (whosTurn===1){
             if (gameBoard.checkSquare(e)) return
             player1.addIcon(e)
             checkForWinner()
+            checkTie()
             whosTurn += 1
             totalTurns +=1
             console.log(whosTurn)
@@ -26,13 +28,13 @@ const gameController = (()=>{
             if (gameBoard.checkSquare(e)) return
             player2.addIcon(e)
             checkForWinner()
+            checkTie()
             whosTurn -= 1
             totalTurns +=1
             console.log(whosTurn)
             return
         }
     }
-    
     const declareWinner = (a,b,c) => 
     {   
         let score1 = parseInt(player1Score.innerText)
@@ -40,6 +42,7 @@ const gameController = (()=>{
         const gridArray = gameBoard.returnGridArray()
         if (gridArray[a]===null&&gridArray[b]===null&&gridArray[c]===null) return
         if (gridArray[a]===gridArray[b]&&gridArray[b]===gridArray[c]){
+            winner = true
             winModal.showModal()
             console.log(`The Winner is Player ${whosTurn}`)
             winModalMessage.innerText = `The Winner is Player ${whosTurn}`
@@ -52,7 +55,12 @@ const gameController = (()=>{
             }
 
         }
-        if (totalTurns === 8){
+        
+    }
+
+    const checkTie = () => 
+    {
+        if (totalTurns === 8 && winner === false){
             winModal.showModal()
             console.log(`It Is a Tied Game!`)
             winModalMessage.innerText = `It Is a Tied Game!`
@@ -77,19 +85,22 @@ const gameController = (()=>{
         winModal.close()
         whosTurn = 1
         totalTurns = 0
+        winner = false
     }
 
-    const resetScore = () => {
+    const resetScore = (e) => {
         player1Score.innerText="0"
         score1 = 0
         player2Score.innerText="0"
         score1 = 0
+        gameReset(e)
     }
 
     return {
         turnController,
         gameReset,
-        resetScore
+        resetScore,
+        winner
     }
 })()
 
