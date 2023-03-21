@@ -19,10 +19,27 @@ body {
     justify-content: center;
     align-items: center;
     width:100vw;
-    height: 200px;
+    height: 120px;
     color: var(--icons);
-    font-size: 140px;
+    font-size: 100px;
     font-weight: bolder;
+}
+
+.game-area{
+    gap: 280px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    color: var(--gameboard);
+    text-align: center;
+}
+
+.game-area h1{
+    font-size: 30px;
+}
+
+.game-area p{
+    font-size: 24px;
 }
 
 .gameboard {
@@ -30,7 +47,7 @@ body {
     margin-top: 40px;
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
-    border: solid 10px var(--header)
+    border: solid 10px var(--header);
 }
 
 .square {
@@ -44,7 +61,75 @@ body {
     border: solid var(--background) 5px;
 }
 
+#buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
 
+#reset, #modal-reset, #reset-score {
+    font-size: 24px;
+    height: 60px;
+    width: 160px;
+    background-color: var(--header);
+    color: var(--icons);
+    border: solid var(--gameboard) 3px;
+}
 
+#reset:hover, #modal-reset:hover, #reset-score:hover {
+    color:var(--gameboard);
+    border-color: var(--icons);
+}
+
+#reset:active, #modal-reset:active, #reset-score:active{
+    border-style: inset;
+}
+
+#win-screen{
+    background-color: var(--gameboard);
+    color: var(--icons);
+    border: solid var(--header) 3px;
+    width: 300px;
+    height: 300px;
+}
+
+#win-screen::backdrop{
+    background: rgb(28, 214, 206, .45);
+}
+
+#modal-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    height: 300px;
+}
+
+#win-message {
+    font-size: 48px;
+    text-align: center;
+    line-height: 70px;
+}
+
+.player{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+}
+
+#player1score, #player2score {
+    font-size: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 160px;
+    background-color: var(--header);
+    color: var(--icons);
+    border: solid var(--gameboard) 3px;
+}
 
 
