@@ -92,10 +92,12 @@ body {
     border: solid var(--header) 3px;
     width: 300px;
     height: 300px;
+    opacity: .95;
 }
 
 #win-screen::backdrop{
-    background: rgb(28, 214, 206, .45);
+    background-image: linear-gradient(to bottom right, #F2CD5C, #F2921D, #A61F69, #400E32);
+    opacity: .5;
 }
 
 #modal-container{

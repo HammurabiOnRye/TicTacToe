@@ -12,6 +12,7 @@ const gameController = (()=>{
     let whosTurn = 1
     let totalTurns = 0
     let winner = false
+    
 
     const turnController = (e)=> {
         if (whosTurn===1){
